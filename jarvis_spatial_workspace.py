@@ -725,10 +725,10 @@ class SelectionTimer:
             return False, 0.0
 
         if target_id is None:
-            self.start_time = None
+            self.target_id, self.start_time = None, None
             return False, 0.0
 
-        if target_id != self.target_id:
+        if target_id != self.target_id or self.start_time is None:
             self.target_id, self.start_time = target_id, t
             return False, 0.0
 
